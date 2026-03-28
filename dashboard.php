@@ -38,7 +38,9 @@ $sessionsLecture = $resultSessions->fetch_all(MYSQLI_ASSOC);
         <button id="menuToggle" class="menu-toggle" type="button" aria-label="Ouvrir le menu">Menu</button>
         <nav id="mainNav" class="nav-links">
             <a href="livres_ajoute.php">Livres</a>
-            <a href="ajout_lecture.php">Lecture</a>
+             <?php if ($role === 'admin'|| $role === 'modérateur') : ?>
+            <a href="ajout_lecture.php">Lectures</a>
+            <?php endif; ?>
             <a href="sessions_ajoute.php">Sessions</a>
             <?php if ($role === 'modérateur') : ?>
                 <a href="moderateur.php">Modérateur</a>
